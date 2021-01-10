@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import Home from "./components/Home.vue";
 import View from "./components/View.vue";
+import Admin from "./components/adminComponents/AdminHome.vue";
 import VueRouter from "vue-router";
 
 Vue.use(VueRouter);
@@ -18,6 +19,21 @@ const routes = [
     path: "/view/",
     component: View,
     props: true
+  },
+  {
+    path: "/admin/:id",
+    component: Admin,
+    children: [
+      {
+        path: "",
+        component: ""
+      }
+    ]
+  },
+  {
+    name: "Admin",
+    path: "/admin",
+    component: Admin
   }
 ];
 
